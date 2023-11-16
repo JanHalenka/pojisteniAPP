@@ -8,10 +8,11 @@ mb_internal_encoding("UTF-8");
  */
 function autoloadFunction(string $class): void
 {
-    if (preg_match('/Controller$/', $class))	
-		require("controllers/" . $class . ".php");
-	else
-		require("models/" . $class . ".php");
+    if (preg_match('/Controller$/', $class)) {	
+	require("controllers/" . $class . ".php");
+    } else {
+	require("models/" . $class . ".php");
+    }
 }
 ini_set("display_errors", "1");
 spl_autoload_register("autoloadFunction");
