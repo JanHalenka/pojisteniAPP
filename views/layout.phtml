@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="cs-cz">
+<head>
+    <base href="/localhost" />
+    <meta charset="UTF-8" />
+    <meta name="description" content="<?= $description ?>" />
+    <meta name="keywords" content="<?= $keywords ?>" />
+    <meta name="author" content="Jan Halenka" />
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <h1>PojištěníAPP</h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="index.php">Pojištěnci</a></li>
+                <li><a href="reference.php">O aplikaci...</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article>
+        <?php $this->controller->loadView(); ?>
+    </article>
+
+    <footer>
+        <p>&copy;Jan Halenka 2023</p>
+    </footer>        
+</body>
+</html>
