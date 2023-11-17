@@ -51,4 +51,45 @@ class Db {
         $result->execute($parameters);
         return $result->rowCount();
     }
+    
+    /**
+     * Zapíše do požadované tabulky záznam dle vloženého pole hodnot
+     * @param string $table Název tabulky
+     * @param array $parameters Pole s hodnotami
+     * @return bool
+     */
+    public static function insert(string $table, array $parameters = array()): bool
+    {
+        return self::query("INSERT INTO `$table` (`" .
+            implode('`, `', array_keys($parameters)) .
+            "`) VALUES (" . str_repeat('?,', sizeof($parameters)-1) .
+            "?", array_values($parameters)
+        );
+    }
+    
+    /**
+     * Úprava existujícího záznamu v tabulce
+     * @param string $table Název tabulky
+     * @param array $values Pole s názvy sloupců
+     * @param string $condition SQL podmínka změny
+     * @param array $parameters Pole s hodnotami
+     * @return bool
+     */
+    public static function edit(string $table, array $values, string $condition, array $parameters = array()): bool
+    {
+        return self::query("UPDATE `$table` SET `" .
+            implode('` = ?, `', array_keys($values)) .
+            "` = ? " . $condition,
+            array_merge(array_values($values), $parameters)
+        );
+    }
+    
+    /**
+     * Vrací IF posledního záznamu
+     * @return int ID posledního záznamu
+     */
+    public static function lastId(): int
+    {
+        return self::$connection->lastInsertId();
+    }
 }
