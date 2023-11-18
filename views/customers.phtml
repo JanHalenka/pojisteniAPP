@@ -1,4 +1,4 @@
-<article>
+<section>
     <h1>Pojištěnci</h1>
     <table>
         <?php foreach ($customers as $customer) : ?>
@@ -10,4 +10,46 @@
             </tr>
         <?php endforeach ?>
     </table>
-</article>
+</section>
+<section>
+    <h1>Nový pojištěnec</h1>
+    <?php
+        if (!empty($customer['message'])) {
+            echo("<p>" . $customer['message'] . "<p>");
+        }
+        
+        $name = (isset($_POST['name'])) ? $_POST['name'] : 'Jan';
+        $surname = (isset($_POST['surname'])) ? $_POST['surname'] : 'Novák';
+        $age = (isset($_POST['age'])) ? $_POST['age'] : '';
+        $tel = (isset($_POST['tel'])) ? $_POST['tel'] : '+420 ';
+    ?>
+    <form method="POST" action="customers">
+        <table>
+            <tr>
+                <td>
+                    <label>Jméno</label>
+                    <input type="text" name="name" value="<?= $name ?>">
+                </td>
+                <td>
+                    <label>Příjmení</label>
+                    <input type="text" name="surname" value="<?= $surname ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Věk</label>
+                    <input type="number" name="age" value="<?= $age ?>">
+                </td>
+                <td>
+                    <label>Telefon</label>
+                    <input type="tel" name="tel" value="<?= $tel ?>">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Uložit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>

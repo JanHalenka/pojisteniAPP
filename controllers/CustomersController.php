@@ -1,16 +1,23 @@
 <?php
 
 /**
- * Description of EditorController
+ * Description of CustomersConctroller
  *
  * @author jan
  */
-class EditorController extends Controller {
+class CustomersController extends Controller {
     
-    public function process(array $parameters): void
-    {
-        $this->head['title'] = 'Editor klientů';
+    public function process(array $parameters): void {
+        
         $adminOfCustomers = new AdminOfCustomers();
+        $this->head = array(
+                'title' => 'Pojištěnci',
+                'keywords' => 'pojištěnci, aplikace, formulář',
+                'description' => 'Hlavní formulář s pojištěnci',
+        );
+        
+        $customers = $adminOfCustomers->returnCustomers();
+        $this->data['customers'] = $customers;
         
         $customer = array(
             'customers_id' => '',
@@ -37,7 +44,7 @@ class EditorController extends Controller {
             }
         }
         
-        $this->data['customer'] = $customer;
-        $this->view = 'editor';                
+        $this->data['customer'] = $customer;     
+        $this->view = 'customers';
     }
 }
