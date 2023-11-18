@@ -63,7 +63,7 @@ class Db {
         return self::query("INSERT INTO `$table` (`" .
             implode('`, `', array_keys($parameters)) .
             "`) VALUES (" . str_repeat('?,', sizeof($parameters)-1) .
-            "?", array_values($parameters)
+            "?)", array_values($parameters)
         );
     }
     

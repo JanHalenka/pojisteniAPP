@@ -9,7 +9,6 @@ class EditorController extends Controller {
     
     public function process(array $parameters): void
     {
-        $message = '';
         $this->head['title'] = 'Editor klientů';
         $adminOfCustomers = new AdminOfCustomers();
         $customer = array(
@@ -26,8 +25,23 @@ class EditorController extends Controller {
                 isset($_POST['age']) && $_POST['age'] &&
                 isset($_POST['tel']) && $_POST['tel']
             ) {
-                    $pojistenec = $_POST['name'] . $_POST['surname'] . $_POST['age'] . $_POST['tel'];
-                    echo($pojistenec);
+                $keys = array('name', 'surname', 'tel', 'age');
+                $customer = array_intersect_key($_POST, array_flip($keys));
+
+                echo(
+                    "INSERT INTO `customers` (`" .
+                    implode('`, `', array_keys($customer)) .
+                    "`) VALUES (" . str_repeat('?,', sizeof($customer)-1) .
+                    "?)"
+                );
+                foreach(array_values($customer) as $param)
+                {
+                    echo($param . '<br>');
+                }
+                
+                $adminOfCustomers->addCustomer('', $customer);
+                $customer['message'] = 'Záznam byl úspěšně uložen.';
+                $this->redirect('customer');                
             } else {
                 $customer['message'] = "Formulář nebyl správně vyplněn.";
             }

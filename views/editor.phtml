@@ -1,7 +1,7 @@
 <article>
     <h1>Nový pojištěnec</h1>
     <?php
-        if ($customer['message']) {
+        if (!empty($customer['message'])) {
             echo("<p>" . $customer['message'] . "<p>");
         }
         
