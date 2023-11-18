@@ -1,0 +1,42 @@
+<article>
+    <h1>Nový pojištěnec</h1>
+    <?php
+        if ($customer['message']) {
+            echo("<p>" . $customer['message'] . "<p>");
+        }
+        
+        $name = (isset($_POST['name'])) ? $_POST['name'] : 'Jan';
+        $surname = (isset($_POST['surname'])) ? $_POST['surname'] : 'Novák';
+        $age = (isset($_POST['age'])) ? $_POST['age'] : '';
+        $tel = (isset($_POST['tel'])) ? $_POST['tel'] : '+420 ';
+    ?>
+    <form method="POST" action="editor">
+        <table>
+            <tr>
+                <td>
+                    <label>Jméno</label>
+                    <input type="text" name="name" value="<?= $customer['name'] ?>">
+                </td>
+                <td>
+                    <label>Příjmení</label>
+                    <input type="text" name="surname" value="<?= $customer['surname'] ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Věk</label>
+                    <input type="number" name="age" value="<?= $customer['age'] ?>">
+                </td>
+                <td>
+                    <label>Telefon</label>
+                    <input type="tel" name="tel" value="<?= $customer['tel'] ?>">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Uložit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</article>
