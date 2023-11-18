@@ -1,11 +1,13 @@
-<h1>Pojištěnci</h1>
-<table>
-    <?php foreach ($customers as $customer) : ?>
-        <tr>
-            <td><?= $customer['surname'] ?></td>
-            <td><?= $customer['name'] ?></td>
-            <td><?= $customer['tel'] ?></td>
-            <td><?= $customer['age'] ?></td>
-        </tr>
-    <?php endforeach ?>
-</table>
+<article>
+    <h1>Pojištěnci</h1>
+    <table>
+        <?php foreach ($customers as $customer) : ?>
+            <tr>
+                <td><?= $customer['surname'] ?></td>
+                <td><?= $customer['name'] ?></td>
+                <td><?= $customer['tel'] ?></td>
+                <td><?= $customer['age'] ?></td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+</article>
