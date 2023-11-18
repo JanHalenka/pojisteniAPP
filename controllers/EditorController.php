@@ -27,17 +27,6 @@ class EditorController extends Controller {
             ) {
                 $keys = array('name', 'surname', 'tel', 'age');
                 $customer = array_intersect_key($_POST, array_flip($keys));
-
-                echo(
-                    "INSERT INTO `customers` (`" .
-                    implode('`, `', array_keys($customer)) .
-                    "`) VALUES (" . str_repeat('?,', sizeof($customer)-1) .
-                    "?)"
-                );
-                foreach(array_values($customer) as $param)
-                {
-                    echo($param . '<br>');
-                }
                 
                 $adminOfCustomers->addCustomer('', $customer);
                 $customer['message'] = 'Záznam byl úspěšně uložen.';
