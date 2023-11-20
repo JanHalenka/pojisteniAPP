@@ -11,9 +11,9 @@ class RouterController extends Controller {
     public function process(array $parameters): void
     {
         $parsedURL = $this->parseURL($parameters[0]);
-        
-        if (empty($parsedURL[0])) {
-            $this->redirect('article/main');
+
+        if (empty($parsedURL[0]) || $parsedURL[0] === 'index.php') {
+            $this->redirect('customers');
         }
             
         $classOfController = $this->hyphensIntoCamelCase(array_shift($parsedURL)) . 'Controller';
