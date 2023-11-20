@@ -1,6 +1,12 @@
 <section>
     <h1>Pojištěnci</h1>
-    <table>
+    <table class="table-sm">
+        <tr>
+            <td>Příjmení</td>
+            <td>Jméno</td>
+            <td>Telefon</td>
+            <td>Věk</td>
+        </tr>
         <?php foreach ($customers as $customer) : ?>
             <tr>
                 <td><?= $customer['surname'] ?></td>
@@ -11,6 +17,7 @@
         <?php endforeach ?>
     </table>
 </section>
+<hr>
 <section>
     <h1>Nový pojištěnec</h1>
     <?php
@@ -24,7 +31,7 @@
         $tel = (isset($_POST['tel'])) ? $_POST['tel'] : '+420 ';
     ?>
     <form method="POST" action="customers">
-        <table>
+        <table class="table-borderless">
             <tr>
                 <td>
                     <label>Jméno</label>
@@ -46,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="2" id="submit-td">
                     <input type="submit" value="Uložit">
                 </td>
             </tr>

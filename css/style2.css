@@ -1,11 +1,11 @@
 html {
-    background: #414042;
+    background: whitesmoke;
 }
 
 body {
-    font: 14px "Poppins";
-    background: #f9f9f9;
-    color: #414042;
+    font: 14px;
+    background: whitesmoke;
+    color: black;
     box-sizing: border-box;
     margin: 0;
     padding: 100px 0px 0px 0px;
@@ -15,7 +15,7 @@ body {
 body > header {
     height: 100px;
     width: 100%;
-    background: #00386B;
+    background: darkslategrey;
     color: white;
     display: flex;
     justify-content: space-evenly;
@@ -30,7 +30,6 @@ body > header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url('obrazky/logo.png') no-repeat;
     background-size: 40px 40px;
 }
 
@@ -43,16 +42,6 @@ body > header {
     font-size: 1.5em;
     line-height: 1.2em;
     color: white;
-}
-
-#logo h1 span {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-#logo small {
-    text-transform: uppercase;
-    font-size: 0.85em;
 }
 
 nav ul {
@@ -77,59 +66,52 @@ nav ul a {
     text-transform: uppercase;
 }
 
-nav ul a:hover,
-.aktivni a {
-    border-bottom: 2px solid #EF6534;
+nav ul a:hover {
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    color: black;
 }
 
 article {
     margin: 0 auto;
     max-width: 960px;
-    padding: 50px 50px 10px 50px;
-}
-
-article h1,
-article h2,
-article h3,
-article h4,
-article h5,
-article h6 {
-    padding: 10px 0;
-    color: #00386B;
+    padding: 20px 80px 10px 80px;
+    
 }
 
 article h1 {
+    padding: 10px 0 30px 0;
     margin: 0;
     font-size: 2.3em;
     font-weight: bold;
-    text-transform: uppercase;
-    width: max-content;
-    border-bottom: 4px solid #EF6534;
 }
 
-article h2 {
-    font-size: 2em;
+td {
+    min-width: 200px;
 }
 
-article header {
-    height: 80px;
+td > label {
+    min-width: 60px;
+    margin-right: 20px;
 }
 
-article section p {
-    margin-bottom: 1.5em;
-    line-height: 1.8em;
+td > input {
+    margin-right: 20px;
 }
 
-article section a {
-    color: #EF6534;
+#submit-td {
+    text-align: center;
 }
 
 footer {
     box-sizing: border-box;
     text-align: center;
     height: 100px;
-    color: white;
-    background: #414042;
+    color: grey;
+    background: whitesmoke;
     padding: 50px 0 0 0;
-    /*clip-path: polygon(0 30px, 100% 0, 100% 105%, 0 105%);*/
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
 }
