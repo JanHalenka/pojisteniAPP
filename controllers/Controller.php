@@ -1,17 +1,37 @@
 <?php
 /**
- * Abstraktni kontroler
+ * Abstraktní výchozí kontroler
  * 
- * @author jan
+ * @author Jan Halenka
  */
 abstract class Controller {
     
+    /**
+     * Pole obsahující proměnné v šabloně
+     * @var array
+     */
     protected array $data = array();
+    /**
+     * 
+     * @var string Název šablony bez přípony
+     */
     protected string $view = "";
+    /**
+     * 
+     * @var array Pole obsahující hlavičku html
+     */
     protected array $head = array('title' => '', 'keywords' => '', 'description' => '');
 
+    /**
+     * Hlavní metoda kontroleru
+     * @param array Pole vstupních parametrů
+     */
     abstract function process(array $parameters): void;
     
+    /**
+     * Zobrazí požadovaný pohled
+     * @return void
+     */
     public function loadView(): void
     {
         if ($this->view) {
@@ -21,12 +41,22 @@ abstract class Controller {
         }
     }
     
+    /**
+     * Přesměruje na zadanou url
+     * @param string $url
+     * @return never
+     */
     public function redirect(string $url): never
     {
         header("Location: /$url");
         header("Connection: close");
     }
     
+    /**
+     * Ošetření uživatelem zadaných proměnných
+     * @param mixed $x
+     * @return mixed
+     */
     private function protectXSS(mixed $x = null): mixed
     {
         if (!isset($x)) {
@@ -45,6 +75,11 @@ abstract class Controller {
         }
     }
 
+    /**
+     * Přidá zprávu pro uživatele
+     * @param string $message
+     * @return void
+     */
     public function addMessage(string $message): void
     {
         if (isset($_SESSION['messages'])) {
@@ -55,6 +90,10 @@ abstract class Controller {
         }
     }
     
+    /**
+     * Vrátí zprávy pro uživatele
+     * @return array Pole uložených zpráv
+     */
     public function returnMessages(): array
     {
         if (isset($_SESSION['messages'])) {

@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/views/layout.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/css/style2.css</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/views/customers.phtml</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/controllers/EditorController.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/controllers/CustomersController.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/controllers/AboutController.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/controllers/Controller.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/controllers/RouterController.php</file>
+        </group>
     </open-files>
 </project-private>

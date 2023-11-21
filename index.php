@@ -18,11 +18,15 @@ function autoloadFunction(string $class): void
     }
 }
 //ini_set("display_errors", "1");
+// Registrace callbacku
 spl_autoload_register("autoloadFunction");
 
+// Připojení k databázi
 Db::connect("127.0.0.1", "root", "", "insurance_db");
 
+// Vytvoření routeru, zpracování URL
 $router = new RouterController();
 $router->process(array($_SERVER['REQUEST_URI']));
 
+//Výpis základního pohledu
 $router->loadView();
