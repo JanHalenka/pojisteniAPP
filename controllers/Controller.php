@@ -43,5 +43,26 @@ abstract class Controller {
         } else {
             return $x;
         }
-    }    
+    }
+
+    public function addMessage(string $message): void
+    {
+        if (isset($_SESSION['messages'])) {
+            $_SESSION['messages'][] = $message;
+            
+        } else {
+            $_SESSION['messages'] = array($message);
+        }
+    }
+    
+    public function returnMessages(): array
+    {
+        if (isset($_SESSION['messages'])) {
+            $messages = $_SESSION['messages'];
+            unset($_SESSION['messages']);
+            return $messages;
+        } else {
+            return array();
+        }
+    }
 }

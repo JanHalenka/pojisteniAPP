@@ -24,7 +24,15 @@
         </nav>
     </header>
 
+    <?php if (!empty($messages)) {
+            foreach ($messages as $message) {
+                echo('<p class="message">' . $message . '</p>');
+            }            
+        }
+    ?>
+    
     <article>
+
         <?php $this->controller->loadView(); ?>
     </article>
 

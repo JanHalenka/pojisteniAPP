@@ -18,7 +18,6 @@ class EditorController extends Controller {
             'surname' => '',
             'tel' => '',
             'age' => '',
-            'message' => '',
         );
         if ($_POST) {
             if (isset($_POST['name']) && $_POST['name'] &&
@@ -30,10 +29,10 @@ class EditorController extends Controller {
                 $customer = array_intersect_key($_POST, array_flip($keys));
                 
                 $adminOfCustomers->addCustomer('', $customer);
-                $customer['message'] = 'Záznam byl úspěšně uložen.';
+                $this->addMessage('Záznam byl úspěšně uložen.');
                 $this->redirect('customer');                
             } else {
-                $customer['message'] = "Formulář nebyl správně vyplněn.";
+                $this->addMessage('Formulář nebyl správně vyplněn.');
             }
         }
         

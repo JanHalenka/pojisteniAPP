@@ -37,10 +37,10 @@ class CustomersController extends Controller {
                 $customer = array_intersect_key($_POST, array_flip($keys));
                 
                 $adminOfCustomers->addCustomer('', $customer);
-                $customer['message'] = 'Záznam byl úspěšně uložen.';
+                $this->addMessage('Záznam byl úspěšně uložen.');
                 $this->redirect('customer');                
             } else {
-                $customer['message'] = "Formulář nebyl správně vyplněn.";
+                $this->addMessage('Formulář nebyl správně vyplněn.');
             }
         }
         
