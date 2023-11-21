@@ -17,7 +17,7 @@ function autoloadFunction(string $class): void
 	require("models/" . $class . ".php");
     }
 }
-ini_set("display_errors", "1");
+//ini_set("display_errors", "1");
 spl_autoload_register("autoloadFunction");
 
 Db::connect("127.0.0.1", "root", "", "insurance_db");
