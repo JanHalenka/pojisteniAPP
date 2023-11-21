@@ -99,6 +99,12 @@ td > input {
     margin-right: 20px;
 }
 
+.first-row {
+    background: darkgray;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
 #submit-td {
     text-align: center;
 }
